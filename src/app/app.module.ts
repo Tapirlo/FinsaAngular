@@ -6,6 +6,7 @@ import {CorsiModule} from './corsi/corsi.module';
 import {StudentiModule} from './studenti/studenti.module';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { AuleModule } from './aule/aule.module';
 
 
 @NgModule({
@@ -21,7 +22,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
     ]),
-    CorsiModule, StudentiModule
+    CorsiModule, StudentiModule,AuleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

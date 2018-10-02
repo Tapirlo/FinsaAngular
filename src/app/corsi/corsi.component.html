@@ -3,4 +3,7 @@
 <span >Nome: {{corso.nome}}</span><br/>
 <span >Data inizio: {{corso.dataInizio}}</span><br/>
 <span >Data fine: {{corso.dataFine}}</span><br/>
+<div class="card">Argomenti: <br/>
+<span *ngFor='let argomento of corso.argomenti'>{{argomento}}</span>
+</div> 
 </div>

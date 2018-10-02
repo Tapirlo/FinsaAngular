@@ -7,28 +7,34 @@ export class CorsoData implements InMemoryDbService {
   createDb() {
     const corsi: Corso[] = [
       {
-        'idcorso': 'corso1',
+        'idCorso': 'corso1',
         'nome': 'Corso per capre',
-        'datainizio': '2018-01-01',
-        'datafine': '2018-06-01'
+        'dataInizio': '2018-01-01',
+        'dataFine': '2018-06-01',
+        'argomenti':['c#','proctologia']
       },
       {
-        'idcorso': 'corso2',
+        'idCorso': 'corso2',
         'nome': 'Corso per ornitorinchi',
-        'datainizio': '2018-02-01',
-        'datafine': '2018-07-01'
+        'dataInizio': '2018-02-01',
+        'dataFine': '2018-07-01',
+        'argomenti':['taglio e cucito','proctologia']
+
       },
       {
-        'idcorso': 'corso3',
+        'idCorso': 'corso3',
         'nome': 'Corso per coccodrilli',
-        'datainizio': '2018-02-01',
-        'datafine': '2018-09-01'
+        'dataInizio': '2018-02-01',
+        'dataFine': '2018-09-01',
+        'argomenti':['antani','supercazzole']
       },
       {
-        'idcorso': 'corso4',
+        'idCorso': 'corso4',
         'nome': 'C# per cretini',
-        'datainizio': '2018-07-01',
-        'datafine': '2018-10-01'
+        'dataInizio': '2018-07-01',
+        'dataFine': '2018-10-01',
+        'argomenti':['tarapia tapioco','esorcismo']
+
       }
 
     ];
