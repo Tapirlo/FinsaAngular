@@ -1,11 +1,8 @@
-<div class="card" *ngFor='let corso of corsi'>
-<span >IDCorso: {{corso.idCorso}}</span><br/>
+<span>Dettagli corso:</span><br/>
+<span >IDCorso: {{corso.iDcorso}}</span><br/>
 <span >Nome: {{corso.nome}}</span><br/>
 <span >Data inizio: {{corso.dataInizio}}</span><br/>
 <span >Data fine: {{corso.dataFine}}</span><br/>
 <div class="card">Argomenti: <br/>
 <span *ngFor='let argomento of corso.argomenti'>{{argomento}}</span>
 </div> 
-<a class="btn btn-primary"
-[routerLink]="['/corsi', corso.idCorso]">Dettagli</a>
-</div>
