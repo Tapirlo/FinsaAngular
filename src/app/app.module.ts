@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import {CorsiModule} from './corsi/corsi.module';
+import {StudentiModule} from './studenti/studenti.module';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 
@@ -20,7 +21,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
     ]),
-    CorsiModule
+    CorsiModule, StudentiModule
   ],
   providers: [],
   bootstrap: [AppComponent]
