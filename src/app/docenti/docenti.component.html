@@ -1,0 +1,11 @@
+<div class="card" *ngFor='let docente of docenti'>
+    <span >Codice Fiscale: {{docente.codiceFiscale}}</span><br/>
+    <span >Nome: {{docente.nome}}</span><br/>
+    <span >Cognome: {{docente.cognome}}</span><br/>
+    <span >Data di nascita: {{docente.dataNascita}}</span><br/>
+    <span >Email: {{docente.email}}</span><br/>
+    <span >Telefono: {{docente.telefono}}</span><br/>
+    <div class="card">Insegnamenti: <br/>
+    <span *ngFor='let argomento of docente.insegnamenti'>{{argomento}}</span>
+    </div> 
+    </div>
