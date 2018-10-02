@@ -1,6 +1,6 @@
 export class Corso{
-  idcorso:string;
+  idCorso:string;
   nome:string;
-  datainizio:string;
-  datafine:string;
+  dataInizio:string;
+  dataFine:string;
 }
