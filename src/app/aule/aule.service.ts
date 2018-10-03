@@ -12,6 +12,7 @@ import { Aula } from './aula';
 export class AuleService {
   //private aulaUrl = 'api/aule';
   private aulaUrl='http://localhost:50397/api/Aule/AllAule';
+  private aulasingolaUrl='http://localhost:50397/api/Aule/AulaPerID';
   constructor(private http: HttpClient) { }
 
   getAule(): Observable<Aula[]> {
@@ -20,7 +21,12 @@ export class AuleService {
         tap(data => console.log(JSON.stringify(data)))
       );
   }
-
+ getAula(idaula:string): Observable<Aula>{
+   return this.http.get<Aula>(this.aulasingolaUrl+'?idAula='+idaula)
+   .pipe(
+     tap(data => console.log(JSON.stringify(data)))
+   );
+ }
 
 
 }
