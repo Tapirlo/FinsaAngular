@@ -12,6 +12,7 @@ import { Docente } from './docente';
 export class DocenteService {
   //private corsoUrl = 'api/corsi';
   private docenteUrl='http://localhost:50397/api/docenti/GetAllDocenti';
+  private docentesingoloUrl = 'http://localhost:50397/api/docenti/DocentePerID';
   constructor(private http: HttpClient) { }
 
   getDocenti(): Observable<Docente[]> {
@@ -20,7 +21,13 @@ export class DocenteService {
         tap(data => console.log(JSON.stringify(data)))
       );
   }
+  getDocente(iddocente:string):Observable<Docente>{
+    return this.http.get<Docente>(this.docentesingoloUrl+'?iddocente='+iddocente)
+      .pipe(
+        tap(data => console.log(JSON.stringify(data)))
+      );
 
+  }
 
 
 }
