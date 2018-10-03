@@ -12,6 +12,7 @@ import { Studente } from './studente';
 export class StudenteService {
   //private studentiUrl = 'api/studenti';
   private studenteUrl='http://localhost:50397/api/studenti/AllStudenti';
+  private studenteSingoloUrl='http://localhost:50397/api/studenti/StudentePerCF'
   constructor(private http: HttpClient) { }
 
   getStudenti(): Observable<Studente[]> {
@@ -21,5 +22,12 @@ export class StudenteService {
       );
   }
 
+  getStudente(codiceFiscale:string):Observable<Studente>{
+    return this.http.get<Studente>(this.studenteSingoloUrl+'?cf='+codiceFiscale)
+      .pipe(
+        tap(data => console.log(JSON.stringify(data)))
+      );
+
+  }
 
 }
