@@ -1,8 +1,5 @@
 <div class="card" *ngFor='let aula of aule'>
     <span >Nome aula: {{aula.nomeAula}}</span><br/>
-    <span >Numero posti: {{aula.numeroPosti}}</span><br/>
-    <span >Numero computer: {{aula.numeroComputer}}</span><br/>
-    <span >Superficie: {{aula.superficie}}</span><br/>
     <a class="btn btn-primary"
 [routerLink]="['/aule', aula.nomeAula]">Dettagli</a>
     </div>
