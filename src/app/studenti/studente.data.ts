@@ -10,35 +10,40 @@ export class StudenteData implements InMemoryDbService {
         'nome': 'Luke',
         'cognome': 'Skywalker',
         'dataNascita': '1999-06-01',
-        'sesso': 'maschio'
+        'sesso': 'maschio',
+         
       },
       {
         'codiceFiscale': 'bbbb',
         'nome': 'Anakin',
         'cognome': 'Skywalker',
         'dataNascita': '1999-06-01',
-        'sesso': 'maschio'
+        'sesso': 'maschio',
+        
       },
       {
         'codiceFiscale': 'cccc',
         'nome': 'Leyla',
         'cognome': 'Skywalker',
         'dataNascita': '1999-06-01',
-        'sesso': 'femmina'
+        'sesso': 'femmina',
+        
       },
       {
         'codiceFiscale': 'dddd',
         'nome': 'b2',
         'cognome': '3p8',
         'dataNascita': '1999-06-01',
-        'sesso': 'altro'
+        'sesso': 'altro',
+        
       },
       {
         'codiceFiscale': 'eee',
         'nome': 'Darth',
         'cognome': 'Vader',
         'dataNascita': '1999-06-01',
-        'sesso': 'maschio'
+        'sesso': 'maschio',
+        
       }
 
     ];

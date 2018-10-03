@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { AuleModule } from './aule/aule.module';
 import { DocentiModule } from './docenti/docenti.module';
+import { StarModule } from './shared/star.module';
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { DocentiModule } from './docenti/docenti.module';
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
     ]),
-    CorsiModule, StudentiModule, AuleModule, DocentiModule
+    CorsiModule, StudentiModule, AuleModule, DocentiModule, StarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

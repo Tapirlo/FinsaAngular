@@ -15,7 +15,7 @@ export class StudenteDetailComponent implements OnInit,OnDestroy {
   studente:Studente;
   errorMessage:string;
   constructor(private studenteService: StudenteService,private route: ActivatedRoute,
-    private router: Router,) {
+    private router: Router) {
 
   }
 
