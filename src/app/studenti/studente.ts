@@ -4,6 +4,13 @@ export class Studente{
     cognome:string;
     dataNascita:string;
     sesso: string;
+    constructor(){
+      this.codiceFiscale='';
+      this.nome='';
+      this.cognome='';
+      this.dataNascita='';
+      this.sesso='';
+    }
     
   }
 

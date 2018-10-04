@@ -4,7 +4,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 
-import { Studente, StudentePunteggio } from './studente';
+import { Studente, StudentePunteggio} from './studente';
+import { StudenteForm } from './studente.form.component';
 
 @Injectable({
   providedIn: 'root',
@@ -14,6 +15,7 @@ export class StudenteService {
   private studenteUrl='http://localhost:50397/api/studenti/AllStudenti';
   private studenteSingoloUrl='http://localhost:50397/api/studenti/StudentePerCF';
   private studentiCorsoUrl='http://localhost:50397/api/studenti/StudentiIscritti';
+  private studentiFormUrl='http://localhost:50397/api/studenti/inserisciStudente';
   constructor(private http: HttpClient) { }
 
   getStudenti(): Observable<Studente[]> {
@@ -38,4 +40,11 @@ export class StudenteService {
     );
   }
 
+  inserisciStudente(studente: Studente):Observable<Studente>{
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.post<Studente>(this.studentiFormUrl, studente, { headers: headers })
+    .pipe(
+      tap(data => console.log(JSON.stringify(data)))
+    );
+   }
 }
