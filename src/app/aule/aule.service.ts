@@ -11,8 +11,10 @@ import { Aula } from './aula';
 })
 export class AuleService {
   //private aulaUrl = 'api/aule';
-  private aulaUrl='http://localhost:50397/api/Aule/AllAule';
-  private aulasingolaUrl='http://localhost:50397/api/Aule/AulaPerID';
+  private aulaUrl='http://localhost:50397/api/aule/AllAule';
+  private aulasingolaUrl='http://localhost:50397/api/aule/AulaPerID';
+  private  inserisciaulaURL='http://localhost:50397/api/aule/InserisciAula';
+
   constructor(private http: HttpClient) { }
 
   getAule(): Observable<Aula[]> {
@@ -26,6 +28,11 @@ export class AuleService {
    .pipe(
      tap(data => console.log(JSON.stringify(data)))
    );
+ }
+
+ inserisciAula(aula:Aula): Observable<Aula>{
+   var aulaheaders= new HttpHeaders({'Content-Type':'application/json'});
+   return this.http.post<Aula>(this.inserisciaulaURL,aula,{headers:aulaheaders});
  }
 
 
