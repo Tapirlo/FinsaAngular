@@ -1,8 +1,11 @@
+<div *ngIf="corso">
 <span>Dettagli corso:</span><br/>
 <span >IDCorso: {{corso.idCorso}}</span><br/>
 <span >Nome: {{corso.nome}}</span><br/>
 <span >Data inizio: {{corso.dataInizio}}</span><br/>
 <span >Data fine: {{corso.dataFine}}</span><br/>
-<div class="card">Argomenti: <br/>
-<span *ngFor='let argomento of corso.argomenti'>{{argomento}}</span>
-</div> 
+<span >Materie: </span><br/>
+<div *ngFor='let argomento of corso.argomenti'>
+    <span >{{argomento}}</span><br/>
+</div>
+</div>

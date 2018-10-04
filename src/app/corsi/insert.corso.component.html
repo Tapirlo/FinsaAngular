@@ -1,0 +1,135 @@
+<div class="card">
+    <div class="card-header">
+      Inserisci nuovo corso
+    </div>
+  
+    <div class="card-body">
+        <form novalidate
+              autocomplete="off"
+              (ngSubmit)="save(signupForm)"
+              #signupForm="ngForm">
+    
+          <div class="form-group row">
+            <label class="col-md-2 col-form-label"
+                   for="idCorso">Id corso</label>
+            <div class="col-md-8">
+              <input class="form-control"
+                     type="text"
+                     placeholder="id"
+                     required
+                     [(ngModel)]=corso.iDCorso
+                     name="idCorso"
+                     #id="ngModel"
+                     [ngClass]="{'is-invalid': (id.touched || id.dirty) && !id.valid }" />
+              <span class="invalid-feedback">
+                <span *ngIf="id.errors?.required">
+                  Inserisci l'id del corso.
+                </span>
+                
+              </span>
+            </div>
+          </div>
+    
+          <div class="form-group row">
+              <label class="col-md-2 col-form-label"
+                     for="nome">Nome Corso</label>
+              <div class="col-md-8">
+                <input class="form-control"
+                       type="text"
+                       placeholder="nome"
+                       required
+                       [(ngModel)]=corso.nome
+                       name="nome"
+                       #nome="ngModel"
+                       [ngClass]="{'is-invalid': (nome.touched || nome.dirty) && !nome.valid }" />
+                <span class="invalid-feedback">
+                  <span *ngIf="nome.errors?.required">
+                    Inserisci il nome del corso.
+                  </span>
+                  
+                </span>
+              </div>
+            </div>
+  
+            <div class="form-group row">
+              <label class="col-md-2 col-form-label"
+                     for="nome">Data inizio</label>
+              <div class="col-md-8">
+                <input class="form-control"
+                       type="date"
+                       placeholder="data inizio"
+                       required
+                       [(ngModel)]=corso.dataInizio
+                       name="dataInizio"
+                       #dataInizio="ngModel"
+                       [ngClass]="{'is-invalid': (dataInizio.touched || dataInizio.dirty) && !dataInizio.valid }" />
+                <span class="invalid-feedback">
+                  <span *ngIf="dataInizio.errors?.required">
+                    Inserisci la data di inizio del corso.
+                  </span>
+                  
+                </span>
+              </div>
+            </div>
+  
+            
+            <div class="form-group row">
+              <label class="col-md-2 col-form-label"
+                     for="dataFine">Data fine</label>
+              <div class="col-md-8">
+                <input class="form-control"
+                       type="date"
+                       placeholder="data fine"
+                       required
+                       [(ngModel)]=corso.dataFine
+                       name="dataFine"
+                       #dataFine="ngModel"
+                       [ngClass]="{'is-invalid': (dataFine.touched || dataFine.dirty) && !dataFine.valid }" />
+                <span class="invalid-feedback">
+                  <span *ngIf="dataInizio.errors?.required">
+                    Inserisci la data di fine del corso.
+                  </span>
+                  
+                </span>
+              </div>
+            </div>
+        
+          
+            <div class="form-group row">
+                <label class="col-md-2 col-form-label"
+                       for="dataFine">Argomenti</label>
+                <div class="col-md-8">
+                  <input class="form-control"
+                         type="text"
+                         placeholder="argomenti"
+                         required
+                         [(ngModel)]="argomenti"
+                         name="argomenti"
+                         #argom="ngModel"
+                         [ngClass]="{'is-invalid': (argom.touched || argom.dirty) && !argom.valid }" />
+                  <span class="invalid-feedback">
+                    <span *ngIf="argom.errors?.required">
+                      Inserisci gli argomenti separati da spazio.
+                    </span>
+                    
+                  </span>
+                </div>
+              </div>
+  
+    
+          <div class="form-group row">
+            <div class="col-md-4">
+              <span>
+                <button class="btn btn-primary"
+                        type="submit"
+                        [disabled]="!signupForm.valid">
+                  Spedisci
+                </button>
+              </span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  
+  <br>Value: {{ corso | json }}

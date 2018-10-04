@@ -12,7 +12,10 @@ import { Corso } from './corso';
 export class CorsoService {
   //private corsoUrl = 'api/corsi';
   private corsoUrl='http://localhost:50397/api/corsi/AllCorsi';
-  private corsoSingoloUrl='http://localhost:50397/api/corsi/CorsoPerID'
+  private corsoSingoloUrl='http://localhost:50397/api/corsi/CorsoPerID';
+  private insertCorsoUrl='http://localhost:50397/api/corsi/InserisciCorso';
+
+
   constructor(private http: HttpClient) { }
 
   getCorsi(): Observable<Corso[]> {
@@ -28,6 +31,13 @@ export class CorsoService {
       );
 
   }
+  inserisciCorso(corso:Corso):Observable<Corso>{
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http.post<Corso>(this.insertCorsoUrl, corso, { headers: headers })
+    .pipe(
+      tap(data => console.log(JSON.stringify(data)))
+    );
 
+  }
 
 }

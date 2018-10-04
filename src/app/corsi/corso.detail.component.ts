@@ -12,27 +12,29 @@ export class CorsoDetailComponent implements OnInit,OnDestroy {
   pageTitle = 'Corso';
   private sub: Subscription;
 
-  corso:Corso;
+  private corso : Corso;
   errorMessage:string;
   constructor(private corsoService: CorsoService,private route: ActivatedRoute,
-    private router: Router,) {
+    private router: Router) {
 
   }
 
   getCorso(idcorso:string){
     this.corsoService.getCorso(idcorso).subscribe(
-        corso => {
-          this.corso = corso;
-        },
+        corso => this.corso = corso,
         error => this.errorMessage = <any>error
-      );
+      ); 
+     
   }
 
   ngOnInit(): void {
     this.sub = this.route.params.subscribe(
         params => {
+          console.log("priva di leggere id");
           const id = params['idcorso'];
+          console.log("letto id " + id);
           this.getCorso(id);
+          console.log("dopo getcorso");
         });
   }
   ngOnDestroy():void{
