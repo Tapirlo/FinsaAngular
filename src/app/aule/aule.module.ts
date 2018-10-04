@@ -4,10 +4,11 @@ import { CommonModule } from '@angular/common';
 
 import {AuleComponent} from './aule.component';
 import { AulaDetailComponent } from './aula.detail.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
-    CommonModule,
+    CommonModule, FormsModule,
     //InMemoryWebApiModule.forRoot(CorsoData),
     RouterModule.forChild([
       { path: 'aule', component: AuleComponent },

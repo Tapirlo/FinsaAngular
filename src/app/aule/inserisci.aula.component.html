@@ -1,0 +1,114 @@
+<div class="card">
+    <div class="card-header">
+      Sign Up!
+    </div>
+  
+    <div class="card-body">
+      <form novalidate
+            autocomplete="off"
+            (ngSubmit)="save()"
+            #signupForm="ngForm">
+  
+        <div class="form-group row">
+          <label class="col-md-2 col-form-label"
+                 for="nomeAula">Nome Aula</label>
+          <div class="col-md-8">
+            <input class="form-control"
+                   type="text"
+                   placeholder="Nome Aula (required)"
+                   required
+                   [(ngModel)]=aula.nomeAula
+                   name="nomeAula"
+                   #nomeAulaVar="ngModel"
+                   [ngClass]="{'is-invalid': (nomeAulaVar.touched || nomeAulaVar.dirty) && !nomeAulaVar.valid }" />
+            <span class="invalid-feedback">
+              <span *ngIf="nomeAulaVar.errors?.required">
+                Please enter nome aula.
+              </span>
+             
+            </span>
+          </div>
+        </div>
+  
+        <div class="form-group row">
+          <label class="col-md-2 col-form-label"
+                 for="numeroPosti">Numero Posti</label>
+          <div class="col-md-8">
+            <input class="form-control"
+                   type="number"
+                   placeholder="Numero Posti (required)"
+                   required
+                   [(ngModel)]="aula.numeroPosti"
+                   name="numeroPosti"
+                   #numeroPostiVar="ngModel"
+                   [ngClass]="{'is-invalid': (numeroPostiVar.touched || numeroPostiVar.dirty) && !NumeroPostiVar.valid }" />
+            <span class="invalid-feedback">
+              <span *ngIf="numeroPostiVar.errors?.required">
+                Please enter numero posti.
+              </span>
+            </span>
+          </div>
+        </div>
+  
+        
+        <div class="form-group row">
+          <label class="col-md-2 col-form-label"
+                 for="numeroComputer">Numero Computer</label>
+          <div class="col-md-8">
+            <input class="form-control"
+                   type="number"
+                   placeholder="Numero Computer (required)"
+                   required
+                   [(ngModel)]="aula.numeroComputer"
+                   name="numeroComputerr"
+                   #numeroComputerVar="ngModel"
+                   [ngClass]="{'is-invalid': (numeroComputerVar.touched || numeroComputerVar.dirty) && !numeroComputerVar.valid }" />
+            <span class="invalid-feedback">
+              <span *ngIf="numeroComputerVar.errors?.required">
+                Please enter numero computer.
+              </span>
+             
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-md-2 col-form-label"
+                   for="numeroComputer">Superficie</label>
+            <div class="col-md-8">
+              <input class="form-control"
+                     type="number"
+                     placeholder="Superficie (required)"
+                     required
+                     [(ngModel)]="aula.superficie"
+                     name="superficie"
+                     #superficieVar="ngModel"
+                     [ngClass]="{'is-invalid': (superficieVar.touched || superficieVar.dirty) && !superficieVar.valid }" />
+              <span class="invalid-feedback">
+                <span *ngIf="superficieVar.errors?.required">
+                  Please enter superficie.
+                </span>
+               
+              </span>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-md-4">
+              <span>
+                <button class="btn btn-primary"
+                        type="submit"
+                        >
+                  Save
+                </button>
+              </span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+        
+
+    <br>Dirty: {{ signupForm.dirty }}
+    <br>Touched: {{ signupForm.touched }}
+    <br>Valid: {{ signupForm.valid }}
+    <br>Value: {{ signupForm.value | json }}
