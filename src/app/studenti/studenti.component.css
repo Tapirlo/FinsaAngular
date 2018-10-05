@@ -4,3 +4,10 @@ span{
     font-weight: bold;
     
   }
+  a{
+    background-color: rgb(0, 102, 255);
+    color: white;    
+  }
+  a:hover{
+    background-color: rgb(97, 180, 248);
+  }

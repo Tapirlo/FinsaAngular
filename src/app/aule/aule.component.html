@@ -1,3 +1,11 @@
+<nav class='navbar navbar-expand navbar-light bg-light'>
+    <ul class='nav nav-pills'>
+        <li><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{ exact: true }"
+            [routerLink]="['/inserisciAula']">Inserisci aula</a>
+          </li>
+  </ul>
+</nav>
+
 <div class="card" *ngFor='let aula of aule'>
     <span >Nome aula: {{aula.nomeAula}}</span><br/>
     <a class="btn btn-primary"
