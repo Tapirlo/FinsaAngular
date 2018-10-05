@@ -1,0 +1,204 @@
+<div class="card">
+    <div class="card-header">
+      Nuovo docente
+    </div>
+  
+    <div class="card-body">
+      <form novalidate
+            autocomplete="off"
+            (ngSubmit)="save(signupForm)"
+            #signupForm="ngForm">
+  
+        <div class="form-group row">
+          <label class="col-md-2 col-form-label"
+                 for="nome">Nome</label>
+          <div class="col-md-8">
+            <input class="form-control"
+                  
+                   type="text"
+                   placeholder="Nome (richiesto)"
+                   required
+                   minlength="3"
+                   maxlength="25"
+                   [(ngModel)]=docente.nome
+                   name="nome"
+                   #nomeVar="ngModel"
+                   [ngClass]="{'is-invalid': (nomeVar.touched || nomeVar.dirty) && !nomeVar.valid }" />
+            <span class="invalid-feedback">
+              <span *ngIf="nomeVar.errors?.required">
+                Per favore inserisci il nome.
+              </span>
+              <span *ngIf="nomeVar.errors?.minlength">
+                Il nome deve essere lungo almeno 3 caratteri.
+              </span>
+              
+            </span>
+          </div>
+        </div>
+  
+        <div class="form-group row">
+          <label class="col-md-2 col-form-label"
+                 for="cognome">Cognome</label>
+          <div class="col-md-8">
+            <input class="form-control"
+                   
+                   type="text"
+                   placeholder="Cognome (richiesto)"
+                   required
+                   maxlength="25"
+                   [(ngModel)]="docente.cognome"
+                   name="cognome"
+                   #cognomeVar="ngModel"
+                   [ngClass]="{'is-invalid': (cognomeVar.touched || cognomeVar.dirty) && !cognomeVar.valid }" />
+            <span class="invalid-feedback">
+              <span *ngIf="cognomeVar.errors?.required">
+                Per favore inserisci il cognome.
+              </span>
+              
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-md-2 col-form-label"
+                 for="dataNascita">Data di nascita</label>
+          <div class="col-md-8">
+            <input class="form-control"
+                   
+                   type="date"                   
+                   required
+                   
+                   [(ngModel)]=docente.dataNascita
+                   name="dataNascita"
+                   #dataNascitaVar="ngModel"
+                   [ngClass]="{'is-invalid': (dataNascitaVar.touched || dataNascitaVar.dirty) && !dataNascitaVar.valid }" />
+            <span class="invalid-feedback">
+              <span *ngIf="dataNascitaVar.errors?.required">
+                Per favore inserisci la data di nascita.
+              </span>              
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-md-2 col-form-label"
+                   for="codiceFiscale">Codice Fiscale</label>
+            <div class="col-md-8">
+              <input class="form-control"
+                     
+                     type="text"
+                     placeholder="Codice Fiscale (richiesto)"
+                     required
+                     minlength="5"
+                     maxlength="25"
+                     [(ngModel)]=docente.codiceFiscale
+                     name="codiceFiscale"
+                     #codiceFiscaleVar="ngModel"
+                     [ngClass]="{'is-invalid': (codiceFiscaleVar.touched || codiceFiscaleVar.dirty) && !codiceFiscaleVar.valid }" />
+              <span class="invalid-feedback">
+                <span *ngIf="codiceFiscaleVar.errors?.required">
+                  Per favore inserisci il codice fiscale.
+                </span>
+                <span *ngIf="codiceFiscaleVar.errors?.minlength">
+                  Il codice fiscale deve essere lungo almeno 5 caratteri.
+                </span>
+                
+              </span>
+            </div>
+          </div>
+
+        <div class="form-group row">
+          <label class="col-md-2 col-form-label"
+                 for="emailId">Email</label>
+          <div class="col-md-8">
+            <input class="form-control"
+                   
+                   type="email"
+                   placeholder="Email (richiesto)"
+                   required
+                   maxlength="25"
+                   email
+                   [(ngModel)]="docente.email"
+                   name="email"
+                   #emailVar="ngModel"
+                   [ngClass]="{'is-invalid': (emailVar.touched || emailVar.dirty) && !emailVar.valid }" />
+            <span class="invalid-feedback">
+              <span *ngIf="emailVar.errors?.required">
+                Per favore inserisci la email.
+              </span>
+              <span *ngIf="emailVar.errors?.email">
+                Per favore inserisci una email vailda.
+              </span>
+            </span>
+          </div>
+        </div>
+  
+        <div class="form-group row">
+            <label class="col-md-2 col-form-label"
+                   for="telefono">Telefono</label>
+            <div class="col-md-8">
+              <input class="form-control"
+                     
+                     type="text"
+                     placeholder="Telefono (richiesto)"
+                     required
+                     maxlength="10"
+                     
+                     [(ngModel)]="docente.telefono"
+                     name="telefono"
+                     #telefonoVar="ngModel"
+                     [ngClass]="{'is-invalid': (telefonoVar.touched || telefonoVar.dirty) && !telefonoVar.valid }" />
+              <span class="invalid-feedback">
+                <span *ngIf="telefonoVar.errors?.required">
+                  Per favore inserisci il numero di telefono.
+                </span>
+                <span *ngIf="telefonoVar.errors?.email">
+                  Per favore inserisci una numero vaildo.
+                </span>
+              </span>
+            </div>
+          </div>  
+          
+
+          <div class="form-group row">
+            <label class="col-md-2 col-form-label"
+                   for="insegnamenti">Insegnamenti</label>
+            <div class="col-md-8">
+              <input class="form-control"
+                     
+                     type="text"
+                     placeholder="Insegnamenti (richiesto)"
+                     required
+                                          
+                     [(ngModel)]="insegnamenti"
+                     name="insegnamenti"
+                     #insegnamentiVar="ngModel"
+                     [ngClass]="{'is-invalid': (insegnamentiVar.touched || insegnamentiVar.dirty) && !insegnamentiVar.valid }" />
+              <span class="invalid-feedback">
+                <span *ngIf="insegnamentiVar.errors?.required">
+                  Per favore inserisci almeno un insegnamento.
+                </span>
+               
+              </span>
+            </div>
+          </div>
+        
+  
+        <div class="form-group row">
+          <div class="col-md-4">
+            <span>
+              <button class="btn btn-primary"
+                      type="submit"
+                      [disabled]="!signupForm.valid">
+                Inserisci
+              </button>
+            </span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <div class="card" >
+    {{result}}
+  </div>

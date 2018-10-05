@@ -1,3 +1,11 @@
+<nav class='navbar navbar-expand navbar-light bg-light'>
+    <ul class='nav nav-pills'>
+    <li><a class='nav-link' routerLinkActive='active' [routerLinkActiveOptions]="{ exact: true }"
+    [routerLink]="['/docenteForm']">Aggiungi docente</a>
+  </li>
+  </ul>
+  </nav>
+
 <div class="card" *ngFor='let docente of docenti'>
     <span >Nome: {{docente.nome}}</span><br/>
     <span >Cognome: {{docente.cognome}}</span><br/>

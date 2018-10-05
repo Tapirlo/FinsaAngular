@@ -4,14 +4,17 @@ import { RouterModule } from '@angular/router';
 import { DocentiComponent } from './docenti.component';
 import { fromEventPattern } from 'rxjs';
 import { DocenteDetailComponent } from './docente.detail.component';
+import { DocenteFormComponent } from './docente.form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
-    CommonModule,  RouterModule.forChild([
+    CommonModule, FormsModule,  RouterModule.forChild([
       { path: 'docenti', component: DocentiComponent },
       { path: 'docente/:iddocente', component: DocenteDetailComponent },
+      { path: 'docenteForm', component: DocenteFormComponent },
     ])
   ],
-  declarations: [DocentiComponent,DocenteDetailComponent]
+  declarations: [DocentiComponent,DocenteDetailComponent, DocenteFormComponent]
 })
 export class DocentiModule { }
