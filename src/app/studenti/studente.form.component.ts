@@ -52,7 +52,7 @@ export class StudenteForm implements OnInit  {
         () =>{console.log('Saved: ' + JSON.stringify(this.studente));
         this.result='Studente iscritto!'; }
         ,
-        (error: any) => this.result = <any>error
+        (error: any) => this.result ="Errore studente non aggiunto"
       );
       this.studente = new StudenteCorso();
       studenteForm.reset();

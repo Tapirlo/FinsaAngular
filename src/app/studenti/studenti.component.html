@@ -1,11 +1,11 @@
+<div>
+    <a class="btn btn-primary" 
+    [routerLink]="['/inserisciStudente']">Aggiungi studente</a>
+</div><br/>
 <div class="card" *ngFor='let studente of studenti'>    
     <span >Nome: {{studente.nome}}</span><br/>
     <span >Cognome: {{studente.cognome}}</span><br/>
      
     <a class="btn btn-primary"
     [routerLink]="['/studenti', studente.codiceFiscale]">Dettagli</a>
-</div>
-<div>
-    <a class="btn btn-primary" 
-    [routerLink]="['/inserisciStudente']">Aggiungi studente</a>
 </div>
