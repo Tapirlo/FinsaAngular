@@ -6,10 +6,10 @@ import {Aula } from './aula';
 
 @Component({
   selector:'app-aulaimport',
-  templateUrl: './aule.component.html',
-  styleUrls: ['./aule.component.css']
+  templateUrl: './inserisci.aula.component.html',
+  styleUrls: ['./inserisci.aula.component.css']
 })
-export class AuleComponent implements OnInit {
+export class InserisciAulaComponent implements OnInit {
   pageTitle = 'Aule';
 
   aula:Aula;

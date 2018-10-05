@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import {AuleComponent} from './aule.component';
 import { AulaDetailComponent } from './aula.detail.component';
 import { FormsModule } from '@angular/forms';
+import { InserisciAulaComponent } from './inserisci.aula.component';
 
 @NgModule({
   imports: [
@@ -13,11 +14,12 @@ import { FormsModule } from '@angular/forms';
     RouterModule.forChild([
       { path: 'aule', component: AuleComponent },
       { path: 'aule/:idaula', component: AulaDetailComponent },
+      {path:'inserisciAula',component:InserisciAulaComponent}
 
     ])
   ],
   declarations: [
-    AuleComponent,AulaDetailComponent
+    AuleComponent,AulaDetailComponent,InserisciAulaComponent
   ]
 })
 export class AuleModule { }
