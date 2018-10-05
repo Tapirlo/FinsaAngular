@@ -1,11 +1,11 @@
 export class Corso{
-  iDCorso:string;
+  idCorso:string;
   nome:string;
   dataInizio:string;
   dataFine:string;
   argomenti:string[];
   constructor(){
-    this.iDCorso='';
+    this.idCorso='';
     this.nome='';
     this.dataInizio='';
     this.dataFine='';

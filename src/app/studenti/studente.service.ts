@@ -15,7 +15,7 @@ export class StudenteService {
   private studenteUrl='http://localhost:50397/api/studenti/AllStudenti';
   private studenteSingoloUrl='http://localhost:50397/api/studenti/StudentePerCF';
   private studentiCorsoUrl='http://localhost:50397/api/studenti/StudentiIscritti';
-  private studentiFormUrl='http://localhost:50397/api/studenti/inserisciStudente';
+  private studentiFormUrl='http://localhost:50397/api/studenti/AggiungiStudente';
   constructor(private http: HttpClient) { }
 
   getStudenti(): Observable<Studente[]> {

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Studente } from './studente';
+import { Studente,StudenteCorso } from './studente';
 import { StudenteService} from './studente.service';
+import { CorsoService } from '../corsi/corso.service';
+import { Corso } from '../corsi/corso';
 
 
 @Component({
@@ -11,12 +13,14 @@ import { StudenteService} from './studente.service';
 })
 
 export class StudenteForm implements OnInit  {
-    private studente : Studente; 
+    private studente : StudenteCorso; 
+    private corsi : Corso[];
+    private result : string;
 
-    constructor(private studenteService: StudenteService) { 
-      this.studente= new Studente();
-      this._argomenti='';  
-  
+    constructor(private studenteService: StudenteService, private corsoService : CorsoService) { 
+      this.studente= new StudenteCorso();
+      this._argomenti=''; 
+      this.result='';
     }
     private errorMessage:string;
     private _argomenti:string;
@@ -32,18 +36,26 @@ export class StudenteForm implements OnInit  {
   
     
     ngOnInit() {
+      this.corsoService.getCorsi().subscribe(
+        corsi => {
+          this.corsi = corsi;
+        },
+        error => console.log(error)
+      );
     }
   
     save(studenteForm: NgForm) {
      
-      console.log('Saved: ' + JSON.stringify(studenteForm.value));
+      console.log('Saved: ' + JSON.stringify(this.studente));
       this.studenteService.inserisciStudente(this.studente)
       .subscribe(
-        () =>console.log('Saved: ' + JSON.stringify(this.studente))
+        () =>{console.log('Saved: ' + JSON.stringify(this.studente));
+        this.result='Studente iscritto!'; }
         ,
-        (error: any) => this.errorMessage = <any>error
+        (error: any) => this.result = <any>error
       );
-  
+      this.studente = new StudenteCorso();
+      studenteForm.reset();
     }
   }
 

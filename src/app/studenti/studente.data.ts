@@ -11,7 +11,7 @@ export class StudenteData implements InMemoryDbService {
         'cognome': 'Skywalker',
         'dataNascita': '1999-06-01',
         'sesso': 'maschio',
-         
+        'email': 'aaa@a',         
       },
       {
         'codiceFiscale': 'bbbb',
@@ -19,7 +19,7 @@ export class StudenteData implements InMemoryDbService {
         'cognome': 'Skywalker',
         'dataNascita': '1999-06-01',
         'sesso': 'maschio',
-        
+        'email': 'aaa@a',  
       },
       {
         'codiceFiscale': 'cccc',
@@ -27,7 +27,7 @@ export class StudenteData implements InMemoryDbService {
         'cognome': 'Skywalker',
         'dataNascita': '1999-06-01',
         'sesso': 'femmina',
-        
+        'email': 'aaa@a',  
       },
       {
         'codiceFiscale': 'dddd',
@@ -35,7 +35,7 @@ export class StudenteData implements InMemoryDbService {
         'cognome': '3p8',
         'dataNascita': '1999-06-01',
         'sesso': 'altro',
-        
+        'email': 'aaa@a',  
       },
       {
         'codiceFiscale': 'eee',
@@ -43,7 +43,7 @@ export class StudenteData implements InMemoryDbService {
         'cognome': 'Vader',
         'dataNascita': '1999-06-01',
         'sesso': 'maschio',
-        
+        'email': 'aaa@a',  
       }
 
     ];
