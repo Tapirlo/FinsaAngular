@@ -17,13 +17,13 @@
                    type="text"
                    placeholder="Nome Aula (richiesto)"
                    required
-                   [(ngModel)]=aula.nomeAula
+                   [(ngModel)]="aula.nomeAula"
                    name="nomeAula"
                    #nomeAulaVar="ngModel"
                    [ngClass]="{'is-invalid': (nomeAulaVar.touched || nomeAulaVar.dirty) && !nomeAulaVar.valid }" />
             <span class="invalid-feedback">
               <span *ngIf="nomeAulaVar.errors?.required">
-                Please enter nome aula.
+                Inserisci nome aula.
               </span>
              
             </span>
@@ -41,10 +41,10 @@
                    [(ngModel)]="aula.numeroPosti"
                    name="numeroPosti"
                    #numeroPostiVar="ngModel"
-                   [ngClass]="{'is-invalid': (numeroPostiVar.touched || numeroPostiVar.dirty) && !NumeroPostiVar.valid }" />
+                   [ngClass]="{'is-invalid': (numeroPostiVar.touched || numeroPostiVar.dirty) && !numeroPostiVar.valid }" />
             <span class="invalid-feedback">
               <span *ngIf="numeroPostiVar.errors?.required">
-                Please enter numero posti.
+                Inserisci numero posti.
               </span>
             </span>
           </div>
@@ -65,7 +65,7 @@
                    [ngClass]="{'is-invalid': (numeroComputerVar.touched || numeroComputerVar.dirty) && !numeroComputerVar.valid }" />
             <span class="invalid-feedback">
               <span *ngIf="numeroComputerVar.errors?.required">
-                Please enter numero computer.
+                Inserisci numero computer.
               </span>
              
             </span>
@@ -86,7 +86,7 @@
                      [ngClass]="{'is-invalid': (superficieVar.touched || superficieVar.dirty) && !superficieVar.valid }" />
               <span class="invalid-feedback">
                 <span *ngIf="superficieVar.errors?.required">
-                  Please enter superficie.
+                  Inserisci superficie.
                 </span>
                
               </span>
@@ -97,7 +97,7 @@
               <span>
                 <button class="btn btn-primary"
                         type="submit"
-                        >
+                        [disabled]="!signupForm.valid">
                   Aggiungi
                 </button>
               </span>
@@ -107,8 +107,7 @@
       </div>
     </div>
         
-
-    <br>Dirty: {{ signupForm.dirty }}
-    <br>Touched: {{ signupForm.touched }}
-    <br>Valid: {{ signupForm.valid }}
-    <br>Value: {{ signupForm.value | json }}
+    <div class="card" >
+      {{getJSON()}}
+    </div>
+    

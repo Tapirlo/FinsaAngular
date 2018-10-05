@@ -5,7 +5,7 @@ import {Aula } from './aula';
 
 
 @Component({
-  selector:'app-aulaimport',
+  
   templateUrl: './inserisci.aula.component.html',
   styleUrls: ['./inserisci.aula.component.css']
 })
@@ -22,7 +22,9 @@ export class InserisciAulaComponent implements OnInit {
    
   }
  
-   
+  getJSON() {
+    return JSON.stringify(this.aula);
+  }
   
   
   
