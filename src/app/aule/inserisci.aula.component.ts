@@ -22,12 +22,7 @@ export class InserisciAulaComponent implements OnInit {
    
   }
  
-  getJSON() {
-    return JSON.stringify(this.aula);
-  }
-  
-  
-  
+   
   
     save() {
      
