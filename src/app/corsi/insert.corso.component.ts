@@ -33,9 +33,9 @@ export class InsertCorsoComponent implements OnInit {
   ngOnInit() {
   }
 
-  save(customerForm: NgForm) {
+  save() {
    
-    console.log('Saved: ' + JSON.stringify(customerForm.value));
+    console.log('Saved: ' + JSON.stringify(this.corso));
     this.corsoService.inserisciCorso(this.corso)
     .subscribe(
       () =>console.log('Saved: ' + JSON.stringify(this.corso))
