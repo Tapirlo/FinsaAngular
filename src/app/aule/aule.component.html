@@ -6,9 +6,54 @@
   </ul>
 </nav>
 
-<div class="card" *ngFor='let aula of aule'>
+<div class="card" *ngFor='let aula of aule; let i=index'>
     <span >Nome aula: {{aula.nomeAula}}</span><br/>
     <a class="btn btn-primary"
 [routerLink]="['/aule', aula.nomeAula]">Dettagli</a>
-    </div>
     
+    
+    
+    <button class="btn btn-primary" (click)="prenota=!prenota"
+    >Prenota aula</button>
+    <div class="card-body" *ngIf="prenota">
+            <form novalidate
+            autocomplete="off"
+            (ngSubmit)="save()"
+            [formGroup]="formGroups[i]">
+
+            <div class="form-group row">
+                    <label class="col-md-2 col-form-label"
+                           for="data">Data</label>
+                    <div class="col-md-8">
+                      <input class="form-control"
+                             
+                             type="date"               
+                             formControlName="data"                   
+                             [ngClass]="{'is-invalid': (formGroups[i].get('data').touched || formGroups[i].get('data').dirty) && !formGroups[i].get('data').valid }" />
+                      <span class="invalid-feedback">
+                        <span *ngIf="formGroups[i].get('data').errors?.required">
+                          Per favore inserisci la data.
+                        </span>          
+                      </span>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                        <label class="col-md-2 col-form-label"
+                               for="corso">Seleziona un corso:</label>
+                        <div class="col-md-8">
+                          <div class="col-md-3">
+                            <select class="form-control"                        
+                                   formControlName="corso">
+                              <option value=""
+                                      disabled
+                                      selected
+                                      hidden>Seleziona un corso</option>
+                              <option *ngFor= 'let corso of corsi' [value] = 'corso.idCorso'> {{corso.nome}} </option>
+                                              
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+            </form>
+        </div>
+</div>

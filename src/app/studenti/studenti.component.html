@@ -11,9 +11,7 @@
 <div class="card" *ngFor='let studente of studenti'>    
     <span >Nome: {{studente.nome}}</span><br/>
     <span >Cognome: {{studente.cognome}}</span><br/>
-     
-    <a class="btn btn-primary"
-    [routerLink]="['/studenti', studente.codiceFiscale]">Dettagli</a>
+         
     <button class="btn btn-primary" (click)="cancella(studente)"
     >Cancella iscrizione</button>
 </div>
