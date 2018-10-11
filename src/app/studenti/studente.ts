@@ -20,6 +20,7 @@ export class Studente{
   export class StudentePunteggio extends Studente {
     static PUNTEGGIOMAX=100;
     punteggio: number;
+    corso:string;
   }
   export class StudenteCorso extends Studente {
     corso: string;

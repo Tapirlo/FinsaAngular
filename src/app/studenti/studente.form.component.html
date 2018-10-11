@@ -6,8 +6,8 @@
     <div class="card-body">
       <form novalidate
             autocomplete="off"
-            (ngSubmit)="save(signupForm)"
-            #signupForm="ngForm">
+            (ngSubmit)="save()"
+            [formGroup]="studenteForm">
   
         <div class="form-group row">
           <label class="col-md-2 col-form-label"
@@ -16,20 +16,15 @@
             <input class="form-control"
                   
                    type="text"
-                   placeholder="Nome (richiesto)"
-                   required
-                   minlength="3"
-                   maxlength="25"
-                   [(ngModel)]=studente.nome
-                   name="nome"
-                   #nomeVar="ngModel"
-                   [ngClass]="{'is-invalid': (nomeVar.touched || nomeVar.dirty) && !nomeVar.valid }" />
+                   placeholder="Nome (richiesto)"                   
+                   formControlName="nome"                   
+                   [ngClass]="{'is-invalid': (studenteForm.get('nome').touched || studenteForm.get('nome').dirty) && !studenteForm.get('nome').valid }" />
             <span class="invalid-feedback">
-              <span *ngIf="nomeVar.errors?.required">
+              <span *ngIf="studenteForm.get('nome').errors?.required">
                 Per favore inserisci il nome.
               </span>
-              <span *ngIf="nomeVar.errors?.minlength">
-                Il nome deve essere lungo almeno 3 caratteri.
+              <span *ngIf="studenteForm.get('nome').errors?.maxlength">
+                Il nome deve essere lungo meno di 25 caratteri.
               </span>
               
             </span>
@@ -43,18 +38,16 @@
             <input class="form-control"
                    
                    type="text"
-                   placeholder="Cognome (richiesto)"
-                   required
-                   maxlength="25"
-                   [(ngModel)]="studente.cognome"
-                   name="cognome"
-                   #cognomeVar="ngModel"
-                   [ngClass]="{'is-invalid': (cognomeVar.touched || cognomeVar.dirty) && !cognomeVar.valid }" />
+                   placeholder="Cognome (richiesto)"                   
+                   formControlName="cognome"                   
+                   [ngClass]="{'is-invalid': (studenteForm.get('cognome').touched || studenteForm.get('cognome').dirty) && !studenteForm.get('cognome').valid }" />
             <span class="invalid-feedback">
-              <span *ngIf="cognomeVar.errors?.required">
+              <span *ngIf="studenteForm.get('cognome').errors?.required">
                 Per favore inserisci il cognome.
               </span>
-              
+              <span *ngIf="studenteForm.get('cognome').errors?.maxlength">
+                Il cognome deve essere lungo meno di 25 caratteri.
+              </span>
             </span>
           </div>
         </div>
@@ -65,17 +58,16 @@
           <div class="col-md-8">
             <input class="form-control"
                    
-                   type="date"                   
-                   required
-                   
-                   [(ngModel)]=studente.dataNascita
-                   name="dataNascita"
-                   #dataNascitaVar="ngModel"
-                   [ngClass]="{'is-invalid': (dataNascitaVar.touched || dataNascitaVar.dirty) && !dataNascitaVar.valid }" />
+                   type="date"               
+                   formControlName="dataNascita"                   
+                   [ngClass]="{'is-invalid': (studenteForm.get('dataNascita').touched || studenteForm.get('dataNascita').dirty) && !studenteForm.get('dataNascita').valid }" />
             <span class="invalid-feedback">
-              <span *ngIf="dataNascitaVar.errors?.required">
+              <span *ngIf="studenteForm.get('dataNascita').errors?.required">
                 Per favore inserisci la data di nascita.
-              </span>              
+              </span>  
+              <span *ngIf="studenteForm.get('dataNascita').errors?.minorenne">
+                Devi essere maggiorenne per poterti iscrivere.
+              </span>            
             </span>
           </div>
         </div>
@@ -87,20 +79,15 @@
               <input class="form-control"
                      
                      type="text"
-                     placeholder="Codice Fiscale (richiesto)"
-                     required
-                     minlength="5"
-                     maxlength="25"
-                     [(ngModel)]=studente.codiceFiscale
-                     name="codiceFiscale"
-                     #codiceFiscaleVar="ngModel"
-                     [ngClass]="{'is-invalid': (codiceFiscaleVar.touched || codiceFiscaleVar.dirty) && !codiceFiscaleVar.valid }" />
+                     placeholder="Codice Fiscale (richiesto)"                     
+                     formControlName="codiceFiscale"
+                     [ngClass]="{'is-invalid': (studenteForm.get('codiceFiscale').touched || studenteForm.get('codiceFiscale').dirty) && !studenteForm.get('codiceFiscale').valid }" />
               <span class="invalid-feedback">
-                <span *ngIf="codiceFiscaleVar.errors?.required">
+                <span *ngIf="studenteForm.get('codiceFiscale').errors?.required">
                   Per favore inserisci il codice fiscale.
                 </span>
-                <span *ngIf="codiceFiscaleVar.errors?.minlength">
-                  Il codice fiscale deve essere lungo almeno 5 caratteri.
+                <span *ngIf="studenteForm.get('codiceFiscale').errors?.maxlength">
+                  Il codice fiscale deve essere lungo meno di 25 caratteri.
                 </span>
                 
               </span>
@@ -114,19 +101,14 @@
             <input class="form-control"
                    
                    type="email"
-                   placeholder="Email (richiesto)"
-                   required
-                   maxlength="25"
-                   email
-                   [(ngModel)]="studente.email"
-                   name="email"
-                   #emailVar="ngModel"
-                   [ngClass]="{'is-invalid': (emailVar.touched || emailVar.dirty) && !emailVar.valid }" />
+                   placeholder="Email (richiesto)"                   
+                   formControlName="email"
+                   [ngClass]="{'is-invalid': (studenteForm.get('email').touched || studenteForm.get('email').dirty) && !studenteForm.get('email').valid }" />
             <span class="invalid-feedback">
-              <span *ngIf="emailVar.errors?.required">
+              <span *ngIf="studenteForm.get('email').errors?.required">
                 Per favore inserisci la email.
               </span>
-              <span *ngIf="emailVar.errors?.email">
+              <span *ngIf="studenteForm.get('email').errors?.email">
                 Per favore inserisci una email vailda.
               </span>
             </span>
@@ -138,32 +120,26 @@
             <div class="col-md-8">
               <div class="form-check form-check-inline">
                 <label class="form-check-label">
-                  <input class="form-check-input"
-                         required
+                  <input class="form-check-input"                         
                          type="radio"                         
-                         value="M"
-                         [(ngModel)]="studente.sesso"
-                         name="sesso"> Maschio
+                         value="M"                         
+                         formControlName="sesso"> Maschio
                 </label>
               </div>
               <div class="form-check form-check-inline">
                 <label class="form-check-label">
                   <input class="form-check-input"
-                         required
                          type="radio"
                          value="F"
-                         [(ngModel)]="studente.sesso"
-                         name="sesso"> Femmina
+                         formControlName="sesso"> Femmina
                 </label>
               </div>
               <div class="form-check form-check-inline">
                 <label class="form-check-label">
                   <input class="form-check-input"
-                         required
                          type="radio"
                          value="X"
-                         [(ngModel)]="studente.sesso"
-                         name="sesso"> Altro
+                         formControlName="sesso"> Altro
                 </label>
               </div>
             </div>
@@ -173,17 +149,15 @@
             <div class="col-md-8">
               <div class="form-check">
                 <label class="form-check-label">
-                  <input class="form-check-input"
-                         id="sendCatalogId"
-                         type="checkbox"
-                         [(ngModel)]="studente.sendCatalog"
-                         name="sendCatalog"> Iscriviti
+                  <input class="form-check-input"                         
+                         type="checkbox"                         
+                         formControlName="iscrizioneCorso"> Iscriviti
                 </label>
               </div>
             </div>
           </div>
 
-        <div *ngIf="studente.sendCatalog">
+        <div *ngIf="studenteForm.get('iscrizioneCorso').value">
           
   
           <div class="form-group row">
@@ -191,11 +165,8 @@
                    for="street1Id">Seleziona un corso:</label>
             <div class="col-md-8">
               <div class="col-md-3">
-                <select class="form-control"
-                        id="stateId"
-                        required
-                        [(ngModel)]="studente.corso"
-                        name="state">
+                <select class="form-control"                        
+                       formControlName="corso">
                   <option value=""
                           disabled
                           selected
@@ -221,7 +192,7 @@
             <span>
               <button class="btn btn-primary"
                       type="submit"
-                      [disabled]="!signupForm.valid">
+                      [disabled]="!studenteForm.valid">
                 Inserisci
               </button>
             </span>

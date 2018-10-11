@@ -9,18 +9,21 @@ import {StudentiCorsoComponent} from './studenti.corso.component';
 import { StarModule } from '../shared/star.module';
 import { FormsModule } from '@angular/forms';
 import { StudenteForm } from './studente.form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   imports: [
     CommonModule,
     StarModule,
-    FormsModule,
+    ReactiveFormsModule,
     //InMemoryWebApiModule.forRoot(StudentiData),
-    RouterModule.forChild([
+    RouterModule.forChild([      
       { path: 'inserisciStudente', component: StudenteForm },
       { path: 'studenti', component: StudentiComponent },
       { path: 'studenti/:codiceFiscale', component: StudenteDetailComponent },
       { path: 'studentiCorso/:idcorso', component: StudentiCorsoComponent },
+      { path: 'InserisciPunteggio', component: StudentiCorsoComponent },
     ])
   ],
   declarations: [

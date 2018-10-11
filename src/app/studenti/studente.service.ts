@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 
-import { Studente, StudentePunteggio} from './studente';
+import { Studente, StudentePunteggio, StudenteCorso} from './studente';
 import { StudenteForm } from './studente.form.component';
 
 @Injectable({
@@ -16,6 +16,8 @@ export class StudenteService {
   private studenteSingoloUrl='http://localhost:50397/api/studenti/StudentePerCF';
   private studentiCorsoUrl='http://localhost:50397/api/studenti/StudentiIscritti';
   private studentiFormUrl='http://localhost:50397/api/studenti/AggiungiStudente';
+  private studentiPunteggioUrl='http://localhost:50397/api/studenti/InserisciPunteggio';
+
   constructor(private http: HttpClient) { }
 
   getStudenti(): Observable<Studente[]> {
@@ -36,13 +38,26 @@ export class StudenteService {
   getStudentiIscrittiCorso(idcorso: string): Observable<StudentePunteggio[]>{
     return this.http.get<StudentePunteggio[]>(this.studentiCorsoUrl+'?idcorso='+idcorso)
     .pipe(
-      tap(data => console.log(JSON.stringify(data)))
-    );
+      tap(data => {
+        for(let studente of data)
+        {
+          studente.corso=idcorso;
+        }
+        console.log(JSON.stringify(data));}));
   }
 
   inserisciStudente(studente: Studente):Observable<Studente>{
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http.post<Studente>(this.studentiFormUrl, studente, { headers: headers })
+    .pipe(
+      tap(data => console.log(JSON.stringify(data)))
+    );
+   }
+
+   inserisciPunteggio(studenti: StudenteCorso[]):Observable<StudenteCorso[]>{
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    alert("studenti:"+JSON.stringify(studenti));
+    return this.http.put<StudenteCorso[]>(this.studentiPunteggioUrl, studenti, { headers: headers })
     .pipe(
       tap(data => console.log(JSON.stringify(data)))
     );

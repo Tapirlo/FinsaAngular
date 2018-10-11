@@ -1,8 +1,45 @@
-<div class="card" *ngFor='let studente of studentiP'>
-<span>Dettagli Studente:</span><br/>
-<span >Nome: {{studente.nome}}</span><br/>
-<span >Cognome: {{studente.cognome}}</span><br/>
-<span >Punteggio: {{studente.punteggio}}</span><br/>
-<pm-star [rating]='studente.punteggio'>
-</pm-star>
+<div class= "container"  *ngIf="iscrittiForm">
+<form novalidate
+autocomplete="off"
+(ngSubmit)="save()"
+[formGroup]="iscrittiForm">
+
+<div formArrayName="iscritti"
+*ngFor="let studente of iscrittiForm.get('iscritti').controls; let i=index">
+
+<div [formGroupName]="i">            
+<div class="card" >
+    <span>Dettagli Studente:</span><br/>
+    <span >Nome: {{studente.controls.studente.value.nome}}</span><br/>
+    <span >Cognome: {{studente.controls.studente.value.cognome}}</span><br/>
+    <span >Punteggio: </span> 
+    <input class="form-control"
+                  
+          type="number"
+          formControlName="punteggio"                   
+          [ngClass]="{'is-invalid': (studente.controls.punteggio.touched || studente.controls.punteggio.dirty) && !studente.controls.punteggio.valid }" />
+     <span class="invalid-feedback">
+        <span *ngIf="studente.controls.punteggio.errors?.punteggioFuoriScala">
+            Il punteggio deve essere compreso tra 0 e {{massimo}}.
+          </span>
+
+    </span>
+    
+    </div>
+   </div>
+  </div>
+  <div class="col-md-1"><br/>
+    <button class="btn btn-primary"
+            type="submit"
+            [disabled]="!iscrittiForm.valid">
+      Modifica punteggio
+    </button><br/>
+  </div>
+</form>
+<div class= 'card' > 
+{{messaggio}}
+
 </div>
+
+</div>
+
