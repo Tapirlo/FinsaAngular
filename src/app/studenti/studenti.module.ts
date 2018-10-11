@@ -23,7 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
       { path: 'studenti', component: StudentiComponent },
       { path: 'studenti/:codiceFiscale', component: StudenteDetailComponent },
       { path: 'studentiCorso/:idcorso', component: StudentiCorsoComponent },
-      { path: 'InserisciPunteggio', component: StudentiCorsoComponent },
+      
     ])
   ],
   declarations: [
