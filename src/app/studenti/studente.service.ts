@@ -55,8 +55,7 @@ export class StudenteService {
    }
 
    inserisciPunteggio(studenti: StudenteCorso[]):Observable<StudenteCorso[]>{
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    alert("studenti:"+JSON.stringify(studenti));
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });    
     return this.http.put<StudenteCorso[]>(this.studentiPunteggioUrl, studenti, { headers: headers })
     .pipe(
       tap(data => console.log(JSON.stringify(data)))
