@@ -17,6 +17,20 @@ export class StudentiComponent implements OnInit {
 
   }
 
+  cancella(studente: Studente) {
+    if (confirm('Sei sicuro di quello che stai facendo?')) {
+      this.studenteService.cancella(studente.codiceFiscale).subscribe(
+        data => {
+          alert(data);
+          this.studenti.splice(this.studenti.indexOf(studente),1);
+        },
+        error => {this.errorMessage = <any>error
+        alert("ritenta sarai piu fortunato");}
+      );
+    }
+    
+  }
+
   ngOnInit(): void {
     this.studenteService.getStudenti().subscribe(
       studenti => {

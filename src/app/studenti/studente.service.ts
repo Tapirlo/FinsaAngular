@@ -17,6 +17,7 @@ export class StudenteService {
   private studentiCorsoUrl='http://localhost:50397/api/studenti/StudentiIscritti';
   private studentiFormUrl='http://localhost:50397/api/studenti/AggiungiStudente';
   private studentiPunteggioUrl='http://localhost:50397/api/studenti/InserisciPunteggio';
+  private studentiCancellaUrl='http://localhost:50397/api/studenti/Cancella';
 
   constructor(private http: HttpClient) { }
 
@@ -58,6 +59,15 @@ export class StudenteService {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });    
     return this.http.put<StudenteCorso[]>(this.studentiPunteggioUrl, studenti, { headers: headers })
     .pipe(
+      tap(data => console.log(JSON.stringify(data)))
+    );
+   }
+
+   cancella(studente): Observable<string> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });    
+
+
+    return this.http.delete(this.studentiCancellaUrl+"?cf="+studente, { headers:headers,responseType:'text'}).pipe(
       tap(data => console.log(JSON.stringify(data)))
     );
    }
