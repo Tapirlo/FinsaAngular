@@ -2,8 +2,8 @@
 <span>Dettagli corso:</span><br/>
 <span >IDCorso: {{corso.idCorso}}</span><br/>
 <span >Nome: {{corso.nome}}</span><br/>
-<span >Data inizio: {{corso.dataInizio}}</span><br/>
-<span >Data fine: {{corso.dataFine}}</span><br/>
+<span >Data inizio: {{corso.dataInizio.substring(0,10)}}</span><br/>
+<span >Data fine: {{corso.dataFine.substring(0,10)}}</span><br/>
 <span >Materie: </span><br/>
 <div *ngFor='let argomento of corso.argomenti'>
     <span >{{argomento}}</span><br/>

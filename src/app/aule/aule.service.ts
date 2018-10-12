@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 
-import { Aula } from './aula';
+import { Aula, AulaPrenotazioni } from './aula';
 
 @Injectable({
   providedIn: 'root',
@@ -24,8 +24,8 @@ export class AuleService {
         tap(data => console.log(JSON.stringify(data)))
       );
   }
- getAula(idaula:string): Observable<Aula>{
-   return this.http.get<Aula>(this.aulasingolaUrl+'?idAula='+idaula)
+ getAula(idaula:string): Observable<AulaPrenotazioni>{
+   return this.http.get<AulaPrenotazioni>(this.aulasingolaUrl+'?idAula='+idaula)
    .pipe(
      tap(data => console.log(JSON.stringify(data)))
    );

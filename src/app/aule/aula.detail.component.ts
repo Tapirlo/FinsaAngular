@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Aula } from './aula';
+import { Aula , AulaPrenotazioni} from './aula';
 import { AuleService } from './aule.service';
 import { Subscription } from 'rxjs';
 
@@ -13,7 +13,7 @@ export class AulaDetailComponent implements OnInit,OnDestroy {
   private sub: Subscription;
 
 
-  aula:Aula;
+  aula:AulaPrenotazioni;
   errorMessage:string;
   constructor(private aulaService: AuleService,private route: ActivatedRoute,
     private router: Router,) {

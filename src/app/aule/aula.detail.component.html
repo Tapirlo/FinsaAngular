@@ -3,3 +3,10 @@
 <span >NumeroPosti: {{aula.numeroPosti}}</span><br/>
 <span >NumeroComputer: {{aula.numeroComputer}}</span><br/>
 <span >Superficie: {{aula.superficie}}</span><br/>
+<span >Prenotazioni: </span><br/>
+<div class='card' *ngFor= 'let prenotazione of aula.prenotazioni'>
+    <a class="btn btn-primary"
+    [routerLink]="['/corsi', prenotazione.corso]">Corso ID: {{prenotazione.corso}}</a><br/>   
+    <span >Data: {{prenotazione.data.substring(0,10)}}</span><br/>
+    
+</div>

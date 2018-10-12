@@ -5,3 +5,14 @@ span{
     
   }
   
+  a{
+    background: lightslategray;
+    color: white;
+    border-color: black;    
+    
+  }
+
+  a:hover{
+    background: rgb(90, 94, 99);
+      
+  }

@@ -31,7 +31,7 @@ export class DocenteFormComponent implements OnInit  {
     set insegnamenti(value:string){
         
         this.docente.insegnamenti=[];
-      var stringhe=value.split(" ");
+      var stringhe=value.split(",");
       for(let i=0;i<stringhe.length;i++){
           this.docente.insegnamenti.push(stringhe[i])
       }

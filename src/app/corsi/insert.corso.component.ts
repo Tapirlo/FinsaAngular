@@ -9,8 +9,10 @@ import {CorsoService} from './corso.service';
 })
 export class InsertCorsoComponent implements OnInit {
   private corso:Corso; 
+  private risultato: string; 
   constructor(private corsoService: CorsoService) { 
-    this.corso= new Corso();
+    this.corso= new Corso();  
+    this.risultato= '';      
     this._argomenti='';
   }
   private errorMessage:string;
@@ -22,7 +24,7 @@ export class InsertCorsoComponent implements OnInit {
 
   set argomenti(value:string){
       this.corso.argomenti=[];
-      var stringhe=value.split(" ");
+      var stringhe=value.split(",");
       for(let i=0;i<stringhe.length;i++){
           this.corso.argomenti.push(stringhe[i])
       }
@@ -33,14 +35,18 @@ export class InsertCorsoComponent implements OnInit {
   ngOnInit() {
   }
 
-  save() {
-   
+  save(form: NgForm) {
+    
     console.log('Saved: ' + JSON.stringify(this.corso));
     this.corsoService.inserisciCorso(this.corso)
     .subscribe(
-      () =>console.log('Saved: ' + JSON.stringify(this.corso))
+      () => {console.log('Saved: ' + JSON.stringify(this.corso));
+      this.risultato='Complimenti hai inserito un corso';
+      form.reset();
+    }
       ,
-      (error: any) => this.errorMessage = <any>error
+      (error: any) => {this.errorMessage = <any>error;
+        this.risultato="ritenta sarai piu fortunato";}
     );
 
   }

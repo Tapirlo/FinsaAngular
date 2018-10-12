@@ -6,7 +6,7 @@
     <div class="card-body">
         <form novalidate
               autocomplete="off"
-              (ngSubmit)="save()"
+              (ngSubmit)="save(signupForm)"
               #signupForm="ngForm">
     
           <div class="form-group row">
@@ -97,11 +97,11 @@
           
             <div class="form-group row">
                 <label class="col-md-2 col-form-label"
-                       for="dataFine">Argomenti</label>
+                       for="dataFine">Materie (separate da virgola)</label>
                 <div class="col-md-8">
                   <input class="form-control"
                          type="text"
-                         placeholder="argomenti"
+                         placeholder="Materie"
                          required
                          [(ngModel)]="argomenti"
                          name="argomenti"
@@ -109,7 +109,7 @@
                          [ngClass]="{'is-invalid': (argom.touched || argom.dirty) && !argom.valid }" />
                   <span class="invalid-feedback">
                     <span *ngIf="argom.errors?.required">
-                      Inserisci gli argomenti separati da spazio.
+                      Inserisci gli argomenti separati da virgola.
                     </span>
                     
                   </span>
@@ -123,7 +123,7 @@
                 <button class="btn btn-primary"
                         type="submit"
                         [disabled]="!signupForm.valid">
-                  Spedisci
+                  Inserisci
                 </button>
               </span>
             </div>
@@ -131,5 +131,6 @@
         </form>
       </div>
     </div>
-  
-  <br>Value: {{ corso | json }}
+  <div class='container' >
+    {{ risultato }}
+  </div> 

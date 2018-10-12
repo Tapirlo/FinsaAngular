@@ -12,3 +12,12 @@ export class Aula{
         this.superficie=0;
     }
 }
+
+export class AulaPrenotazioni extends Aula {
+    prenotazioni: any[];
+
+    constructor(){
+        super();
+        this.prenotazioni=[];
+    }
+}

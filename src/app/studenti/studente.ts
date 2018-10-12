@@ -6,6 +6,8 @@ export class Studente{
     email: string;
     sesso: string;
 
+   
+
     constructor(){
       this.codiceFiscale='';
       this.nome='';
