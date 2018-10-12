@@ -11,26 +11,46 @@ import { FormGroup, FormBuilder, Validators, AbstractControl, ValidatorFn, FormA
 })
 export class AuleComponent implements OnInit {
   private pageTitle = 'Aule';
-  private prenota:boolean; 
+  private prenota: boolean[]; 
   private aule: Aula[] = [];
   private corsi: Corso[] = [];
   private formGroups: FormGroup[];
   private errorMessage:string;
   constructor(private fb: FormBuilder, private aulaService:AuleService,private corsoService: CorsoService) {
-   this.prenota=false;
+   
 
+  }
+
+  creaPrenota() {
+    this.prenota = [];
+    for (let i = 0; i < this.aule.length; i++) {
+      this.prenota[i]=false;
+    }
   }
 
   generaForm() {
     this.formGroups = [];
     for (let i = 0; i < this.aule.length; i++) {
       this.formGroups[i]= this.fb.group({
+        aula: this.aule[i].nomeAula,
         data: ['', [Validators.required]],        
         corso: ['', [Validators.required]]  
       });
       
     }
     
+  }
+
+  save(i: number) {
+
+    this.aulaService.prenotaAula(this.formGroups[i].value).subscribe(
+      aula=> {
+        alert("aula "+aula.aula+"  prenotata per il corso "+aula.corso+" il "+aula.data);
+      },
+      error => {
+        this.errorMessage = error;
+        alert("ritenta sarai piu fortunato");
+      });
   }
 
   ngOnInit(): void {
@@ -42,6 +62,7 @@ export class AuleComponent implements OnInit {
             corsi=> {
               this.corsi = corsi; 
               this.generaForm();
+              this.creaPrenota();
             },
             error => {
               this.errorMessage = error;

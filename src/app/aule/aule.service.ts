@@ -14,6 +14,7 @@ export class AuleService {
   private aulaUrl='http://localhost:50397/api/aule/AllAule';
   private aulasingolaUrl='http://localhost:50397/api/aule/AulaPerID';
   private  inserisciaulaURL='http://localhost:50397/api/aule/InserisciAula';
+  private  prenotaAulaURL='http://localhost:50397/api/aule/RegistraAula';
 
   constructor(private http: HttpClient) { }
 
@@ -34,6 +35,11 @@ export class AuleService {
    var aulaheaders= new HttpHeaders({'Content-Type':'application/json'});
    return this.http.post<Aula>(this.inserisciaulaURL,aula,{headers:aulaheaders});
  }
+
+ prenotaAula(aula): Observable<any>{
+  var aulaheaders= new HttpHeaders({'Content-Type':'application/json'});
+  return this.http.post<any>(this.prenotaAulaURL,aula,{headers:aulaheaders});
+}
 
 
 }

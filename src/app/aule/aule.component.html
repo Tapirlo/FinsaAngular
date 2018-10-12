@@ -13,12 +13,12 @@
     
     
     
-    <button class="btn btn-primary" (click)="prenota=!prenota"
+    <button class="btn btn-primary" (click)="prenota[i]=!prenota[i]"
     >Prenota aula</button>
-    <div class="card-body" *ngIf="prenota">
+    <div class="card-body" *ngIf="prenota[i]">
             <form novalidate
             autocomplete="off"
-            (ngSubmit)="save()"
+            (ngSubmit)="save(i)"
             [formGroup]="formGroups[i]">
 
             <div class="form-group row">
@@ -54,6 +54,11 @@
                           </div>
                         </div>
                       </div>
+                      <button class="btn btn-primary"
+                      type="submit"
+                      [disabled]="!formGroups[i].valid">
+                Prenota
+              </button><br/>
             </form>
         </div>
 </div>
